@@ -1,101 +1,152 @@
-import Image from "next/image";
+"use client"
+import React, { useState } from 'react';
+import { FiSearch, FiUser, FiHeart, FiShoppingBag, FiMenu, FiX } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 
-export default function Home() {
+const AnitaDongreHomepage = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="font-sans">
+      {/* Top Banner */}
+      <div className="bg-green-900 text-white text-center py-2">
+        <p className="text-sm">
+          Shop At Special Prices | <span className="font-semibold underline">Discover Now</span>
+        </p>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Header with Logo and Navigation */}
+      <header className="bg-cream-50 py-4 px-4 md:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex justify-between items-center mb-4">
+            {/* Mobile Menu Button - Only visible on mobile */}
+            <button 
+              className="md:hidden p-2" 
+              onClick={toggleMobileMenu}
+            >
+              {mobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            </button>
+
+            {/* Ship To - Hidden on smaller mobile screens */}
+            <div className="hidden sm:flex items-center">
+              <span className="text-sm">Ship to : </span>
+              <select className="ml-2 bg-transparent border-none focus:outline-none text-sm">
+                <option>India ₹</option>
+              </select>
+            </div>
+
+            {/* Logo */}
+            <div className="flex items-center">
+              {/* <img
+                src="/logo-placeholder.png"
+                alt="Anita Dongre"
+                className="h-8 md:h-10"
+              /> */}
+              <h1 className="text-lg md:text-xl text-amber-700 font-serif ml-2">HILYO</h1>
+            </div>
+
+            {/* Header Icons - Show fewer icons on mobile */}
+            <div className="flex items-center space-x-2 md:space-x-4">
+              <button className="p-1 md:p-2">
+                <FiSearch size={18} />
+              </button>
+              <button className="hidden sm:block p-1 md:p-2">
+                <FiUser size={18} />
+              </button>
+              <button className="hidden sm:block p-1 md:p-2">
+                <FiHeart size={18} />
+              </button>
+              <button className="p-1 md:p-2">
+                <FiShoppingBag size={18} />
+              </button>
+              <button className="hidden sm:block p-1 md:p-2 text-green-600">
+                <FaWhatsapp size={18} />
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Navigation Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden bg-grey-900 fixed inset-0 z-50 pt-16 px-4 overflow-y-auto">
+              <button 
+                className="absolute top-4 right-4" 
+                onClick={toggleMobileMenu}
+              >
+                <FiX size={24} />
+              </button>
+              
+              <div className="flex flex-col space-y-4 text-center">
+                <a href="#" className="py-3 border-b border-gray-700">WOMEN</a>
+                <a href="#" className="py-3 border-b border-gray-700">MEN</a>
+                <a href="#" className="py-3 border-b border-gray-700">WEDDING</a>
+                <a href="#" className="py-3 border-b border-gray-700">JEWELRY</a>
+                <a href="#" className="py-3 border-b border-gray-700">ACCESSORIES</a>
+                <a href="#" className="py-3 border-b border-gray-700">GIFTING</a>
+                <a href="#" className="py-3 border-b border-gray-700">GRASSROOT BY ANITA DONGRE</a>
+                <a href="#" className="py-3 border-b border-gray-700">DISCOVER</a>
+                <a href="#" className="py-3 border-b border-gray-700">CELEBRITY CLOSET</a>
+                <a href="#" className="py-3 border-b border-gray-700">SALE</a>
+                
+                {/* Mobile-only country selector */}
+                <div className="py-3 border-b border-gray-200 flex justify-center">
+                  <span>Ship to : </span>
+                  <select className="ml-2 bg-transparent border-none focus:outline-none">
+                    <option>India ₹</option>
+                  </select>
+                </div>
+                
+                {/* Mobile-only user icons */}
+                <div className="flex justify-center space-x-6 py-4">
+                  <button className="p-2">
+                    <FiUser size={20} />
+                  </button>
+                  <button className="p-2">
+                    <FiHeart size={20} />
+                  </button>
+                  <button className="p-2 text-green-600">
+                    <FaWhatsapp size={20} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Main Navigation - Hidden on mobile */}
+          <nav className="hidden md:flex justify-center space-x-4 lg:space-x-8 text-xs lg:text-sm overflow-x-auto">
+            <a href="#" className="px-2 py-2 whitespace-nowrap hover:underline">WOMEN</a>
+            <a href="#" className="px-2 py-2 whitespace-nowrap hover:underline">MEN</a>
+            <a href="#" className="px-2 py-2 whitespace-nowrap hover:underline">WEDDING</a>
+            <a href="#" className="px-2 py-2 whitespace-nowrap hover:underline">JEWELRY</a>
+            <a href="#" className="px-2 py-2 whitespace-nowrap hover:underline">ACCESSORIES</a>
+            <a href="#" className="px-2 py-2 whitespace-nowrap hover:underline">GIFTING</a>
+            <a href="#" className="px-2 py-2 whitespace-nowrap hover:underline">GRASSROOT BY ANITA DONGRE</a>
+            <a href="#" className="px-2 py-2 whitespace-nowrap hover:underline">DISCOVER</a>
+            <a href="#" className="px-2 py-2 whitespace-nowrap hover:underline">CELEBRITY CLOSET</a>
+            <a href="#" className="px-2 py-2 whitespace-nowrap hover:underline">SALE</a>
+          </nav>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </header>
+
+      {/* Hero Section with Image and Text */}
+      <section className="relative">
+        {/* <img
+          src="/eid-collection-hero.jpg"
+          alt="The Eid Edit Collection"
+          className="w-full h-screen object-cover"
+        /> */}
+        {/* <div className="absolute inset-0 flex flex-col justify-end items-end pr-8 sm:pr-16 md:pr-24 pb-16 sm:pb-24 md:pb-32">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-serif italic">The Eid Edit</h2>
+          <a href="#" className="text-white text-xl sm:text-2xl underline mt-4 sm:mt-8 font-light">
+            Shop Now
+          </a>
+        </div> */}
+      </section>
     </div>
   );
-}
+};
+
+export default AnitaDongreHomepage;
