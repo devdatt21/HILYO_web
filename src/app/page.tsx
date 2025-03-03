@@ -9,7 +9,6 @@ const AnitaDongreHomepage = () => {
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
-
   return (
     <div className="font-sans">
       {/* Top Banner */}
