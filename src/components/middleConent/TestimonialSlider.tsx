@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import Image from "next/image";
 
 interface Testimonial {
   id: number;
@@ -116,11 +117,13 @@ const TestimonialSlider: React.FC = () => {
 
                 {/* Author */}
                 <div className="flex items-center justify-center">
-                  <img
-                    src={testimonial.avatarUrl}
-                    alt={testimonial.author}
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                  />
+                <Image
+                  src={testimonial.avatarUrl}
+                  alt={testimonial.author}
+                  width={48} // 12 * 4 = 48px
+                  height={48} // 12 * 4 = 48px
+                  className="rounded-full object-cover mr-4"
+                />
                   <div>
                     <h4 className="font-medium text-gray-800">{testimonial.author}</h4>
                     <p className="text-gray-500 text-sm">{testimonial.role}</p>

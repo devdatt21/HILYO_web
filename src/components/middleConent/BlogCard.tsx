@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { FiClock, FiUser } from "react-icons/fi";
+import Image from "next/image";
 
 interface BlogCardProps {
   id: string;
@@ -37,11 +38,13 @@ const BlogCard: React.FC<BlogCardProps> = ({
     <article className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
       {/* Blog image */}
       <Link href={link} className="block relative overflow-hidden pb-[60%]">
-        <img
-          src={imageUrl}
-          alt={title}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-        />
+      <Image
+        src={imageUrl}
+        alt={title}
+        fill
+        className="absolute inset-0 object-cover transition-transform duration-500 hover:scale-105"
+      />
+
         {/* Category tag */}
         <Link
           href={categoryLink}

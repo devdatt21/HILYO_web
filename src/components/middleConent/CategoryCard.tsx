@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface CategoryCardProps {
   id: string;
@@ -16,11 +17,12 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ id, name, imageUrl, itemCou
       <div className="relative overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-shadow duration-300">
         {/* Category image */}
         <div className="relative pb-[120%]">
-          <img
-            src={imageUrl}
-            alt={name}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
+        <Image
+          src={imageUrl}
+          alt={name}
+          fill
+          className="absolute inset-0 object-cover transition-transform duration-500 group-hover:scale-105"
+        />
           
           {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4">

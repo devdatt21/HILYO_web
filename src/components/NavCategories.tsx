@@ -78,7 +78,7 @@ const NavCategories: React.FC = () => {
   };
 
   return (
-    <div className="bg-pale-pink border-b border-gray-200 hidden md:block" ref={menuRef}>
+    <div className="bg-pale-pink hidden md:block" ref={menuRef}>
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <ul className="flex justify-center space-x-8">
           {categories.map((category) => (

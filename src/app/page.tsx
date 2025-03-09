@@ -8,7 +8,7 @@ import FeaturedCollection from '@/components/middleConent/FeaturedCollection';
 import TestimonialSlider from '@/components/middleConent/TestimonialSlider';
 
 
-const AnitaDongreHomepage = () => {
+const HomePage = () => {
 
   return (
     <div className="font-sans">
@@ -24,4 +24,4 @@ const AnitaDongreHomepage = () => {
   );
 };
   
-export default AnitaDongreHomepage;
+export default HomePage;

@@ -5,6 +5,8 @@ import { FaWhatsapp } from "react-icons/fa";
 import BottomNav from "./BottomNav";
 import SearchBar from "./Search";
 import NavCategories from "./NavCategories";
+import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -15,13 +17,15 @@ const Navbar = () => {
             
             {/* Logo on the left */}
             <div className="flex items-center">
-              <img
+            <Link href="/">
+              <Image
                 src="/HILYO (3).svg"
                 alt="HILYO Logo"
-                className="h-8 md:h-10"
-                height={80}
                 width={80}
+                height={80}
+                className="h-8 md:h-10 cursor-pointer"
               />
+            </Link>
             </div>
             <NavCategories />
             
