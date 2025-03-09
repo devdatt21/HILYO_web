@@ -43,14 +43,6 @@ const HeroBannerSlider: React.FC = () => {
     },
   ];
 
-  // Auto-rotate slides
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [currentSlide]);
-
   const nextSlide = () => {
     if (!isAnimating) {
       setIsAnimating(true);
@@ -75,14 +67,28 @@ const HeroBannerSlider: React.FC = () => {
     }
   };
 
+  // Auto-rotate slides with improved dependency handling
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isAnimating) {
+        setIsAnimating(true);
+        setCurrentSlide((prev) => (prev === bannerSlides.length - 1 ? 0 : prev + 1));
+        setTimeout(() => setIsAnimating(false), 500);
+      }
+    }, 4000); // Changed to 5000ms (5 seconds) for a more natural rotation
+    
+    return () => clearInterval(interval);
+  }, [isAnimating, bannerSlides.length]); // Only depend on isAnimating and array length
+
   return (
+
     <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden">
       {/* Slides */}
       <div className="relative w-full h-full">
         {bannerSlides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${
+            className={`absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ${
               index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
           >
