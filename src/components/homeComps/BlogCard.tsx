@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import Link from "next/link";
 import { FiClock, FiUser } from "react-icons/fi";
@@ -28,30 +27,25 @@ const BlogCard: React.FC<BlogCardProps> = ({
   link,
 }) => {
   // Format date
-  const formattedDate = new Date(date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  const formattedDate = "March 9, 2025";
 
   return (
     <article className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
       {/* Blog image */}
       <Link href={link} className="block relative overflow-hidden pb-[60%]">
-      <Image
-        src={imageUrl}
-        alt={title}
-        fill
-        className="absolute inset-0 object-cover transition-transform duration-500 hover:scale-105"
-      />
+        <Image
+          src={imageUrl}
+          alt={title}
+          fill
+          className="absolute inset-0 object-cover transition-transform duration-500 hover:scale-105"
+        />
 
         {/* Category tag */}
-        <Link
-          href={categoryLink}
-          className="absolute top-4 left-4 bg-pale-pink text-white text-xs font-medium px-3 py-1 rounded-full hover:bg-pink-600 transition-colors duration-200"
+        <label
+          className="absolute top-4 left-4 bg-pale-pink text-white text-xs font-medium px-3 py-1 rounded-full"
         >
           {category}
-        </Link>
+        </label>
       </Link>
 
       {/* Blog content */}

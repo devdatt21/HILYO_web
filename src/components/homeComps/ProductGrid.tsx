@@ -48,7 +48,7 @@ const dummyProducts: Product[] = [
   },
   {
     id: "4",
-    name: "Classic women's Blazer",
+    name: "Classic Women's Blazer",
     imageUrl: "/images/womens-blazer.jpeg",
     price: 199.99,
     rating: 4,
@@ -85,12 +85,7 @@ const dummyProducts: Product[] = [
   },
 ];
 
-const ProductGrid: React.FC<ProductGridProps> = ({
-  title = "Featured Products",
-  subtitle = "Discover our latest collection",
-  products = dummyProducts,
-  viewAllLink = "/shop",
-}) => {
+const ProductGrid: React.FC<ProductGridProps> = ({ title, subtitle, products, viewAllLink }) => {
   return (
     <section className="py-10 px-4 md:px-6">
       {/* Section header */}
@@ -103,7 +98,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({
 
       {/* Product grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-        {products && products.map((product) => (
+        {products.map((product) => (
           <ProductCard key={product.id} {...product} />
         ))}
       </div>
@@ -123,4 +118,14 @@ const ProductGrid: React.FC<ProductGridProps> = ({
   );
 };
 
-export default ProductGrid;
+// ✅ Use default props or pass `prodprop` when using <ProductGrid />
+export default function ProductGridWrapper() {
+  return (
+    <ProductGrid
+      title="Featured Products"
+      subtitle="Discover our latest collection"
+      products={dummyProducts}
+      viewAllLink="/shop"
+    />
+  );
+}

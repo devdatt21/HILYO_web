@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaInstagram, FaGithub, FaFacebook, FaTwitter} from 'react-icons/fa'
+import { FaInstagram, FaGithub, FaTwitter} from 'react-icons/fa'
 
 interface FooterLink {
   name: string;
@@ -38,14 +38,14 @@ const defaultNavigation = {
     {
       name: 'Instagram',
       href: 'https://www.instagram.com/_hilyo_',
-      icon: (props:any) => (
+      icon: () => (
         <FaInstagram></FaInstagram>
       ),
     },
     {
       name: 'Twitter',
       href: 'https://x.com/_hilyo_',
-      icon: (props:any) => (
+      icon: () => (
         <FaTwitter></FaTwitter>
         
       ),
@@ -53,7 +53,7 @@ const defaultNavigation = {
     {
       name: 'GitHub',
       href: 'https://github.com/devdatt21/HILYO_web',
-      icon: (props:any) => (
+      icon: () => (
         <FaGithub></FaGithub>
       ),
     }

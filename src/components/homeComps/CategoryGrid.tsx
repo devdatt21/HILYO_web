@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import CategoryCard from "./CategoryCard";
 
@@ -77,9 +76,9 @@ const dummyCategories: Category[] = [
 ];
 
 const CategoryGrid: React.FC<CategoryGridProps> = ({
-  title = "Shop by Category",
-  subtitle = "Browse through our wide range of categories",
-  categories = dummyCategories,
+  title,
+  subtitle,
+  categories,
 }) => {
   return (
     <section className="py-10 px-4 md:px-6 bg-gray-50">
@@ -101,4 +100,14 @@ const CategoryGrid: React.FC<CategoryGridProps> = ({
   );
 };
 
-export default CategoryGrid;
+
+export default function CategoryGridWrapper(){
+  return(
+    <CategoryGrid
+      title = "Shop by Category"
+      subtitle  = "Browse through our wide range of categories"
+      categories = {dummyCategories}
+
+    />
+  )
+}

@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { FiSearch, FiUser, FiHeart, FiShoppingBag } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";

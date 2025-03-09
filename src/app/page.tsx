@@ -1,26 +1,27 @@
 "use client"
 import React from 'react';
-import HeroBannerSlider from '@/components/middleConent/HeroBannerSlider';
-import ProductGrid from '@/components/middleConent/ProductGrid';
-import CategoryGrid from '@/components/middleConent/CategoryGrid';
-import BlogGrid from '@/components/middleConent/BlogGrid';
-import FeaturedCollection from '@/components/middleConent/FeaturedCollection';
-import TestimonialSlider from '@/components/middleConent/TestimonialSlider';
-
+import HeroBannerSlider from '@/components/homeComps/HeroBannerSlider';
+import FeaturedCollection from '@/components/homeComps/FeaturedCollection';
+import TestimonialSlider from '@/components/homeComps/TestimonialSlider';
+import ProductGridWrapper from '@/components/homeComps/ProductGrid';
+import BlogGridWrapper from '@/components/homeComps/BlogGrid';
+import CategoryGridWrapper from '@/components/homeComps/CategoryGrid';
 
 const HomePage = () => {
 
   return (
-    <div className="font-sans">
+    <>
 
+    <div className="pt-[60px]">
     <HeroBannerSlider/>
-    <ProductGrid/>
-    <CategoryGrid/>
+    <ProductGridWrapper/>
+    <CategoryGridWrapper/>
     <FeaturedCollection/>
-    <BlogGrid/>
+    <BlogGridWrapper/>
     <TestimonialSlider/>
-        
     </div>
+        
+    </>
   );
 };
   

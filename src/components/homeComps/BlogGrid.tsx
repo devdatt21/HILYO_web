@@ -92,10 +92,10 @@ const dummyPosts: BlogPost[] = [
 ];
 
 const BlogGrid: React.FC<BlogGridProps> = ({
-  title = "Latest Fashion Insights",
-  subtitle = "Stay updated with the latest trends and style guides",
-  posts = dummyPosts,
-  viewAllLink = "/blog",
+  title ,
+  subtitle,
+  posts ,
+  viewAllLink,
 }) => {
   return (
     <section className="py-10 px-4 md:px-6">
@@ -129,4 +129,14 @@ const BlogGrid: React.FC<BlogGridProps> = ({
   );
 };
 
-export default BlogGrid;
+export default function BlogGridWrapper(){
+  return (
+    <BlogGrid
+    title= "Latest Fashion Insights"
+    subtitle = "Stay updated with the latest trends and style guides"
+    posts = {dummyPosts}
+    viewAllLink = "/blog"
+
+  />
+  )
+}

@@ -28,7 +28,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   const [isHovered, setIsHovered] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
 
-  const discount = originalPrice ? Math.round(((originalPrice - price) / originalPrice) * 100) : 0;
+  const discount = 0;
 
   const handleFavoriteClick = (e: React.MouseEvent) => {
     e.preventDefault();

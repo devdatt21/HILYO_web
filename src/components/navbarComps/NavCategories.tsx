@@ -73,9 +73,9 @@ const NavCategories: React.FC = () => {
     };
   }, []);
 
-  const toggleCategory = (categoryName: string) => {
-    setActiveCategory(activeCategory === categoryName ? null : categoryName);
-  };
+  // const toggleCategory = (categoryName: string) => {
+  //   setActiveCategory(activeCategory === categoryName ? null : categoryName);
+  // };
 
   return (
     <div className="bg-pale-pink hidden md:block" ref={menuRef}>
@@ -90,7 +90,7 @@ const NavCategories: React.FC = () => {
             >
               <div className="flex items-center cursor-pointer">
                 <Link href={category.path}>
-                  <span className="text-white font-medium hover:text-pink-500 transition-colors duration-200">
+                  <span className="text-white font-medium hover:text-gray-500 transition-colors duration-200">
                     {category.name}
                   </span>
                 </Link>
@@ -106,12 +106,12 @@ const NavCategories: React.FC = () => {
 
               {/* Dropdown menu for categories with subcategories */}
               {category.subCategories && activeCategory === category.name && (
-                <div className="absolute left-0 top-full mt-1 w-48 bg-white shadow-lg rounded-md py-2 z-50">
+                <div className="absolute left-0 top-full mt-[0px] w-48 bg-white shadow-lg rounded-md py-1 z-50">
                   {category.subCategories.map((subCategory) => (
                     <Link 
                       key={subCategory.name} 
                       href={subCategory.path}
-                      className="block px-4 py-2 text-sm text-white hover:bg-pink-50 hover:text-pink-500"
+                      className="block px-4 py-2 text-sm text-gray-500 hover:text-pale-pink"
                     >
                       {subCategory.name}
                     </Link>
