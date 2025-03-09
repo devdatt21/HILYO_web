@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface FeaturedCollectionProps {
   title: string;
@@ -52,11 +53,12 @@ const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
       <div className="relative overflow-hidden rounded-lg shadow-md">
         {/* Background image */}
         <div className="relative h-[300px] md:h-[400px]">
-          <img
-            src={imageUrl}
-            alt={title}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+        <Image
+          src={imageUrl}
+          alt={title}
+          fill
+          className="absolute inset-0 object-cover"
+        />
           
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent" />

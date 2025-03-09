@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { FiHeart, FiShoppingBag, FiEye } from "react-icons/fi";
 import Link from "next/link";
+import Image from "next/image";
 
 interface ProductCardProps {
   id: string;
@@ -83,13 +84,16 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
       {/* Product image with hover actions */}
       <Link href={`/products/${id}`} className="block relative">
-        <div className="relative pb-[125%] overflow-hidden">
-          <img
-            src={imageUrl}
-            alt={name}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
+
+      <div className="relative pb-[125%] overflow-hidden">
+        <Image
+          src={imageUrl}
+          alt={name}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+
 
         {/* Hover actions */}
         <div

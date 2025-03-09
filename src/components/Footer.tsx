@@ -65,7 +65,7 @@ const Footer: React.FC<FooterProps> = ({
   description = 'Have It Like Your Own',
   navigation = defaultNavigation,
   logo = '/HILYO__3_nobg.png',
-  copyRightYear = new Date().getFullYear(),
+  copyRightYear = 2025,
 }) => {
   return (
     <footer className="bg-gray-800">
