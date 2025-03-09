@@ -1,11 +1,13 @@
 import { FiUser, FiHeart, FiShoppingBag} from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
+import SearchBar from "./Search";
 
 
 const NavIcons : React.FC = () => {
     return (
         <div className="flex items-center space-x-2 md:space-x-4">
               
+              <SearchBar/>
               {/* User Account Button - Only visible on larger screens */}
               <div className="relative group hidden sm:block">
                 <button className="p-1 md:p-2" aria-label="User account">

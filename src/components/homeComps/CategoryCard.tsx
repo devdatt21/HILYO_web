@@ -3,14 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 
 interface CategoryCardProps {
-  id: string;
   name: string;
   imageUrl: string;
   itemCount: number;
   link: string;
 }
 
-const CategoryCard: React.FC<CategoryCardProps> = ({ id, name, imageUrl, itemCount, link }) => {
+const CategoryCard: React.FC<CategoryCardProps> = ({ name, imageUrl, itemCount, link }) => {
   return (
     <Link href={link} className="block group">
       <div className="relative overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-shadow duration-300">

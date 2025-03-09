@@ -4,26 +4,20 @@ import { FiClock, FiUser } from "react-icons/fi";
 import Image from "next/image";
 
 interface BlogCardProps {
-  id: string;
   title: string;
   excerpt: string;
   imageUrl: string;
-  date: string;
   author: string;
   category: string;
-  categoryLink: string;
   link: string;
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({
-  id,
   title,
   excerpt,
   imageUrl,
-  date,
   author,
   category,
-  categoryLink,
   link,
 }) => {
   // Format date
