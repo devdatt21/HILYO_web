@@ -4,7 +4,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 const BottomNav: React.FC = () => {
   return (
-    <div className="fixed text-white bottom-0 left-0 w-full bg-pale-pink shadow-md flex justify-around items-center p-3 md:hidden border-t">
+    <div className="fixed z-50 text-white bottom-0 left-0 w-full bg-pale-pink shadow-md flex justify-around items-center p-3 md:hidden border-t">
       <button className="p-2" aria-label="Search">
         <FiSearch size={22} />
       </button>

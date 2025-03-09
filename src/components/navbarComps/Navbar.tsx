@@ -1,6 +1,5 @@
 import React from "react";
 import BottomNav from "./BottomNav";
-import SearchBar from "./Search";
 import NavCategories from "./NavCategories";
 import Image from "next/image";
 import Link from "next/link";
@@ -29,9 +28,7 @@ const Navbar = () => {
             {/* Categories  */}
             <NavCategories />
             
-            {/* Search bar */}
-            <SearchBar/>
-
+          
             {/* Header Icons */}
             <NavIcons/>
             
